@@ -1,0 +1,33 @@
+{
+    "name": "IEWarn",
+    "namemsg": "iewarn-name",
+    "url": "https://github.com/MTres19/mw-ext-iewarn",
+    "author": "Matthew Trescott",
+    "description": "Adds a warning when a user is using Internet Explorer or Microsoft Edge.",
+    "descriptionmsg": "iewarn-desc",
+    "version": "1.0",
+    "license-name": "AGPL-3.0",
+    "requires": {
+        "MediaWiki": ">= 1.25.0"
+    },
+    "MessagesDirs": {
+        "IEWarn": [
+            "i18n"
+        ]
+    },
+    "AutoloadClasses": {
+        "IEWarnHooks": "IEWarnHooks.php"
+    },
+    "Hooks": {
+        "BeforePageDisplay": [
+            "IEWarnHooks::onBeforePageDisplay"
+        ]
+    },
+    "config": {
+        "_prefix": "wgIEWarn",
+        "OuterBoxStyle": "",
+        "InnerMessageStyle": "",
+        "CustomMessage": ""
+    },
+    "manifest_version": 1
+}
