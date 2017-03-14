@@ -39,10 +39,19 @@ class IEWarnHooks
         
         if ($browser !== 'OK')
         {
-            $html = '<div id="iewarn-outer-box" style="' . $GLOBALS['wgIEWarnOuterBoxStyle'] . '">';
-            $html .= '<div id="iewarn-inner-message" style="' . $GLOBALS['wgIEWarnInnerMessageStyle'] . '">';
+            $outerBoxStyle = '#iewarn-outer-box {' . $GLOBALS['wgIEWarnOuterBoxStyle'] . '}';
+            $innerMessageStyle = '#iewarn-inner-message {' . $GLOBALS['wgIEWarnInnerMessageStyle'] . '}';
+            
+            $out->addInlineStyle($outerBoxStyle);
+            $out->addInlineStyle($innerMessageStyle);
+            
+            $html = '<div id="iewarn-outer-box">';
+            $html .= $GLOBALS['wgIEWarnCustomOuterBoxTitle'] ?: wfMessage('iewarn-ie-title')->text();
+            $html .= '</div>';
+            
+            $html .= '<div id="iewarn-inner-message">';
             $html .= $GLOBALS['wgIEWarnCustomMessage'] ?: wfMessage('iewarn-ie-message', $browser)->text();
-            $html .= '</div></div>';
+            $html .= '</div>';
             
             $out->prependHTML($html);
         }
