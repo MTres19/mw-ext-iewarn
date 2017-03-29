@@ -6,7 +6,7 @@
     "description": "Adds a warning when a user is using Internet Explorer or Microsoft Edge.",
     "descriptionmsg": "iewarn-desc",
     "version": "1.0",
-    "license-name": "AGPL-3.0",
+    "license-name": "AGPL-3.0+",
     "requires": {
         "MediaWiki": ">= 1.25.0"
     },
