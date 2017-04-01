@@ -46,11 +46,11 @@ class IEWarnHooks
             $out->addInlineStyle($innerMessageStyle);
             
             $html = '<div id="iewarn-outer-box">';
-            $html .= $GLOBALS['wgIEWarnCustomOuterBoxTitle'] ?: wfMessage('iewarn-ie-title')->text();
+            $html .= $GLOBALS['wgIEWarnCustomOuterBoxTitle'] ?: $out->msg('iewarn-ie-title')->text();
             $html .= '</div>';
             
             $html .= '<div id="iewarn-inner-message">';
-            $html .= $GLOBALS['wgIEWarnCustomMessage'] ?: wfMessage('iewarn-ie-message', $browser)->text();
+            $html .= $GLOBALS['wgIEWarnCustomMessage'] ?: $out->msg('iewarn-ie-message', $browser)->text();
             $html .= '</div>';
             
             $out->prependHTML($html);
